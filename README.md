@@ -194,8 +194,27 @@ sudo apt update
 sudo apt install -y software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible
+ansible --version
+
+# installer plocate
+apt install plocate
 ```
 
 #### Creer un fichier inventory.ini
 Le fichier inventory nous permet de faire l'inventaire de nos ressources
 
+Ajouter les lignes suivantes dans le fichier:
+
+```txt
+172.17.0.2
+172.17.0.3
+172.17.0.4
+```
+
+#### Tester la connexion au serveur via ansible
+
+Pour tester la connexion aux serveurs via ansible
+
+```bash
+ansible all --key /root/.ssh/ansible -i inventory.ini -m ping
+```
