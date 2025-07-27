@@ -216,5 +216,42 @@ Ajouter les lignes suivantes dans le fichier:
 Pour tester la connexion aux serveurs via ansible
 
 ```bash
-ansible all --key /root/.ssh/ansible -i inventory.ini -m ping
+ansible all --key-file /root/.ssh/ansible -i inventory.ini -m ping
+```
+
+
+Pour eviter de toujours renseigner le fichier de la clé ssh et le fichier inventory.ini correspondant il est interessant de creer un fichier de configurat
+uration ansible.cfg
+
+```bash
+touch ansible.cfg
+```
+
+Ajouter les lignes suivantes au fichier de configuration
+
+```cfg
+[defaults]
+inventory = inventory.ini
+private_key = ~/.ssh/ansible
+```
+
+```bash
+ansible all -m ping 
+```
+
+
+#### Effectuer une commande sur plusieurs serveurs à la fois
+
+ansible all -m shell -a 'la commande shell' 
+
+Voici un exemple:
+
+```shell
+ansible all -m shell -a "cat /etc/*release"
+```
+
+#### Visualiser la liste de tous mes serveurs
+
+```bash
+ansible all --list-hosts
 ```
