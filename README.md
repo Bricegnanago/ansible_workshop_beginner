@@ -184,3 +184,18 @@ alias sshag='eval $(ssh-agent) && ssh-add'
 ```
 
 
+#### Creer un repository github
+
+
+#### Installer Ansible
+
+```bash
+sudo apt update
+sudo apt install -y software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install -y ansible
+```
+
+#### Creer un fichier inventory.ini
+Le fichier inventory nous permet de faire l'inventaire de nos ressources
+
